@@ -1,6 +1,5 @@
 #ifndef DEFS_H
 #define DEFS_H
-using namespace std;
 #include <string>
 
 // 1. Shared Enumerations (Enums)
@@ -34,7 +33,7 @@ enum SimMode {
 
 struct Location {
     int LID;
-    string name;
+    std::string name;
 };
 
 struct ProblemCode {
