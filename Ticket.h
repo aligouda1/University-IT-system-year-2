@@ -22,24 +22,56 @@ class Ticket {
 public:
     Ticket(int rid, int qt, int lid, TicketType t, int pc, int pr = 0);
 
-    int getRID() { return RID; }
-    int getQT() { return QT; }
-    int getLID() { return LID; }
-    TicketType getType() { return type; }
-    int getPC() { return PC; }
-    int getPR() { return PR; }
-    int getAT() { return AT; }
-    int getST() { return ST; }
-    int getFT() { return FT; }
-    TicketStatus getStatus() { return status; }
+    int getRID() {
+        return RID; 
+    }
+    int getQT() { 
+        return QT;
+    }
+    int getLID() {
+        return LID;
+    }
+    TicketType getType() { 
+        return type;
+    }
+    int getPC() {
+        return PC;
+    }
+    int getPR() {
+        return PR;
+    }
+    int getAT() { 
+        return AT;
+    }
+    int getST() {
+        return ST; 
+    }
+    int getFT() {
+        return FT;
+    }
+    TicketStatus getStatus() { 
+        return status;
+    }
 
-    void setAT(int at) { AT = at; }
-    void setST(int st) { ST = st; }
-    void setFT(int ft) { FT = ft; }
-    void setStatus(TicketStatus s) { status = s; }
+    void setAT(int at) {
+        AT = at;
+    }
+    void setST(int st) { 
+        ST = st; 
+    }
+    void setFT(int ft) { 
+        FT = ft; 
+    }
+    void setStatus(TicketStatus s) {
+        status = s;
+    }
 
-    int getWaitingTime() { return ST - QT; }
-    int getResolutionTime() { return FT - QT; }
+    int getWaitingTime() {
+        return ST - QT;
+    }
+    int getResolutionTime() {
+        return FT - QT;
+    }
     string getTypeString();
     void printTicket();
 };
