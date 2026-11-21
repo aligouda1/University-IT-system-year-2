@@ -5,7 +5,7 @@
 #include "Organizer.h"
 using namespace std;
 
-bool Organizer::loadInputFile(string filename) {
+bool Organizer::loadInputFile (string filename) {
     ifstream in(filename);
     if (!in.is_open()) {
         cout << "Cannot open file: " << filename << endl;
