@@ -15,8 +15,12 @@ Ticket::Ticket(int rid, int qt, int lid, TicketType t, int pc, int pr) {
 }
 
 string Ticket::getTypeString() {
-    if (type == NR) return "NR";
-    if (type == SR) return "SR";
+    if (type == NR){
+        return "NR"; 
+    }
+    if (type == SR) {
+        return "SR";
+    }
     return "UR";
 }
 
