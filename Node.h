@@ -13,9 +13,15 @@ public:
         next = nullptr;
     }
 
-    void setNext(Node<T>* n) { next = n; }
-    Node<T>* getNext() { return next; }
-    T getItem() { return item; }
+    void setNext(Node<T>* n) {
+        next = n;
+    }
+    Node<T>* getNext() {
+        return next;
+    }
+    T getItem() {
+        return item;
+    }
 };
 
 #endif
