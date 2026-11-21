@@ -6,31 +6,34 @@ ostream& operator<<(ostream& out, ProblemCode* p) {
     return out;
 }
 
-ProblemTable::~ProblemTable() {
+ProblemTable::ProblemTable() {
     clearAll();
 }
 
 ProblemCode* ProblemTable::getByIndex(int pc) {
-    if (pc < 1 || pc > count)
+    if (pc < 1 || pc > count){
         return nullptr;
-
+    }
     Node<ProblemCode*>* cur = front;
-    for (int i = 1; i < pc; i++)       // move forward pc-1 times
+    for (int i = 1; i < pc; i++){       // move forward pc-1 times
         cur = cur->getNext();
+    }
     return cur->getItem();
 }
 
 char ProblemTable::getCategory(int pc) {
     ProblemCode* p = getByIndex(pc);
-    if (p == nullptr)
+    if (p == nullptr){
         return '?';
+    }
     return p->category;
 }
 
 int ProblemTable::getDuration(int pc) {
     ProblemCode* p = getByIndex(pc);
-    if (p == nullptr)
+    if (p == nullptr){
         return 0;
+    }
     return p->duration;
 }
 
