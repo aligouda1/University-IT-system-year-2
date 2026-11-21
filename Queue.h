@@ -11,16 +11,16 @@ class Queue {
 protected:
     Node<T>* front;
     Node<T>* back;
-    int count;
+    int cont;
 
 public:
     Queue() {
         front = nullptr;
         back = nullptr;
-        count = 0;
+        cont = 0;
     }
 
-    virtual ~Queue() { clear(); }
+  
 
     // no copying (it would delete the same nodes twice)
     Queue(const Queue&) = delete;
@@ -34,7 +34,7 @@ public:
         else
             back->setNext(n);
         back = n;
-        count++;
+        cont++;
     }
 
     // remove from the front - O(1)
@@ -48,7 +48,7 @@ public:
         if (front == nullptr)
             back = nullptr;   // queue is empty now
         delete temp;
-        count--;
+        cont--;
         return true;
     }
 
@@ -83,7 +83,7 @@ public:
             delete temp;
         }
         back = nullptr;
-        count = 0;
+        cont = 0;
     }
 };
 
