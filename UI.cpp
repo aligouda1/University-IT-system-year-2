@@ -45,8 +45,9 @@ void UI::printSilentStart() {
 
 void UI::printSilentEnd(bool outputFileCreated) {
     cout << "Simulation ends";
-    if (outputFileCreated)
+    if (outputFileCreated){
         cout << ", Output file created";
+    }
     cout << endl;
 }
 
