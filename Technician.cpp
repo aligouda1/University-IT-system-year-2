@@ -31,6 +31,8 @@ void Technician::releaseTicket() {
 	assignedTicket = nullptr;
 	finishTime = 0;
 }
-void Technician::incrementBusyTime(int minutes) {busyTime += minutes;}
+void Technician::incrementBusyTime(int minutes) {
+	busyTime += minutes;
+}
 
 
