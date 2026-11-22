@@ -1,5 +1,4 @@
 // ProblemTable.h - the problem-code table (derived from Queue)
-// Row number = problem code, so row 1 is the first row of the input file.
 #ifndef PROBLEMTABLE_H
 #define PROBLEMTABLE_H
 
