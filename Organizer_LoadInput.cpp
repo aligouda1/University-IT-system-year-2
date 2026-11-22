@@ -12,7 +12,7 @@ bool Organizer::loadInputFile (string filename) {
         return false;
     }
 
-    // ----- locations -----
+    // locations
     int L;
     in >> L;
     locations.initLocations(L);
@@ -23,7 +23,7 @@ bool Organizer::loadInputFile (string filename) {
     }
     numLocations = L;
 
-    // ----- problem codes (row number = problem code, starts at 1) -----
+    // problem codes (row number =problem code,starts at1)
     int K;
     in >> K;
     for (int i = 1; i <= K; i++) {
@@ -34,7 +34,7 @@ bool Organizer::loadInputFile (string filename) {
     }
     numProblemCodes = K;
 
-    // ----- technicians (ST first, then GT, IDs increase) -----
+    // technicians (ST first,then GT,IDs increase)
     int stCount, gtCount;
     in >> stCount >> gtCount;
     int id = 1;
@@ -49,7 +49,7 @@ bool Organizer::loadInputFile (string filename) {
     numST = stCount;
     numGT = gtCount;
 
-    // ----- requests (Phase 1.2: go directly to the waiting lists) -----
+    // requests (Phase 1.2: go directly to the waiting lists)
     int R;
     in >> R;
     for (int i = 0; i < R; i++) {
@@ -62,10 +62,12 @@ bool Organizer::loadInputFile (string filename) {
         if (typeStr == "NR") {
             type = NR;
             numNR++;
-        } else if (typeStr == "SR") {
+        } 
+        else if (typeStr == "SR") {
             type = SR;
             numSR++;
-        } else {
+        }
+        else {
             type = UR;
             numUR++;
             in >> pr;   // only UR has a priority
@@ -76,7 +78,7 @@ bool Organizer::loadInputFile (string filename) {
         itUnit.addWaitingTicket(t);   // ITUnit chooses the right list
     }
 
-    // ----- cancellations -----
+    // cancellations 
     int C;
     in >> C;
     for (int i = 0; i < C; i++) {
