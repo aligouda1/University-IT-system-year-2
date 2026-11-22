@@ -47,6 +47,7 @@ void ProblemTable::print() {
 
 void ProblemTable::clearAll() {
     ProblemCode* p;
-    while (dequeue(p))      // dequeue frees the node, we free the row
+    while (dequeue(p)) {     // dequeue frees the node, we free the row
         delete p;
+}
 }
