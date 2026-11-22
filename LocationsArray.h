@@ -1,9 +1,8 @@
 #ifndef LOCATIONS_ARRAY_H
 #define LOCATIONS_ARRAY_H
-
 #include "Defs.h"
 #include <string>
-
+using namespace std;
 class LocationsArray {
 private:
     Location* locArray;
@@ -15,7 +14,7 @@ public:
 
     void initLocations(int L);
     void setLocation(int lid, std::string name);
-    std::string getLocationName(int lid) const;
+    string getLocationName(int lid) const;
     void printLocations() const;
     void clearLocations();
 };
