@@ -8,11 +8,21 @@ Technician::Technician(int tid, TechType t) :
     busyTime(0),
     assignedTicket(nullptr) {
 }
-int Technician::getTID() const { return TID; }
-int Technician::getBusyTime() const { return busyTime; }
-int Technician::getFinishTime() const { return finishTime; }
-TechType Technician::getType() const { return type; }
-Ticket* Technician::getAssignedTicket() const { return assignedTicket; }
+int Technician::getTID() const {
+	return TID;
+}
+int Technician::getBusyTime() const {
+	return busyTime;
+}
+int Technician::getFinishTime() const { 
+	return finishTime; 
+}
+TechType Technician::getType() const {
+	return type;
+}
+Ticket* Technician::getAssignedTicket() const { 
+	return assignedTicket;
+}
 void Technician::assignTicket(Ticket* t, int ft) {
 	assignedTicket = t;
 	finishTime = ft;
