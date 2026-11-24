@@ -2,8 +2,7 @@
 #define DEFS_H
 #include <string>
 
-// 1. Shared Enumerations (Enums)
-// These define the standard options for types and modes across the whole project.
+
 
 enum TicketType { 
     NR, // Normal Request
@@ -28,8 +27,7 @@ enum SimMode {
     SILENT 
 };
 
-// 2. Shared Basic Structs
-// These are simple containers for the data entities you are responsible for managing.
+
 
 struct Location {
     int LID;
