@@ -6,7 +6,7 @@ ostream& operator<<(ostream& out, ProblemCode* p) {
     return out;
 }
 
-ProblemTable::ProblemTable() {
+ProblemTable::~ProblemTable() {
     clearAll();
 }
 
@@ -15,7 +15,7 @@ ProblemCode* ProblemTable::getByIndex(int pc) {
         return nullptr;
     }
     Node<ProblemCode*>* cur = front;
-    for (int i = 1; i < pc; i++){       // move forward pc-1 times
+    for (int i = 1; i < pc; i++){       
         cur = cur->getNext();
     }
     return cur->getItem();
