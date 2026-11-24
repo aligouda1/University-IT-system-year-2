@@ -14,12 +14,12 @@ class ProblemTable : public Queue<ProblemCode*> {
 public:
     ~ProblemTable();
 
-    ProblemCode* getByIndex(int pc);   // O(K)  walks to row pc, nullptr if not found
-    char getCategory(int pc);          // 'B' / 'H'   (or '?' if pc is wrong)
-    int getDuration(int pc);           // minutes     (or 0 if pc is wrong)
+    ProblemCode* getByIndex(int pc);   
+    char getCategory(int pc);          // 'B' / 'H'   (or '?')
+    int getDuration(int pc);           
 
-    void print();       // O(K)  one row per line
-    void clearAll();    // O(K)  deletes the rows AND the nodes
+    void print();       
+    void clearAll();   
 };
 
 #endif
