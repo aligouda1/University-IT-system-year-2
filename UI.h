@@ -9,7 +9,7 @@ using namespace std;
 class UI {
     SimMode mode;
 
-    // UR (2): 3 7
+   
     template <typename List>
     void printList(string title, List& list) {
         cout << title << " (" << list.getCount() << "): ";
