@@ -8,9 +8,9 @@ Ticket* NRQueue::removeByID(int rid) {
             Ticket* t = curr->getItem();
             if (prev == nullptr)               
                 frontPtr = curr->getNext();
-            else                               // it is in the middle or the end
+            else                               
                 prev->setNext(curr->getNext());
-            if (curr == backPtr)               // it was the last one
+            if (curr == backPtr)               
                 backPtr = prev;
             delete curr;
             count--;
