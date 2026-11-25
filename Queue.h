@@ -1,4 +1,4 @@
-// Queue.h - simple linked FIFO queue
+
 #ifndef QUEUE_H
 #define QUEUE_H
 
@@ -22,11 +22,11 @@ public:
 
   
 
-    // no copying (it would delete the same nodes twice)
+    
     Queue(const Queue&) = delete;
     Queue& operator=(const Queue&) = delete;
 
-    // add at the back - O(1)
+   
     void enqueue(T value) {
         Node<T>* n = new Node<T>(value);
         if (front == nullptr)
@@ -37,7 +37,7 @@ public:
         cont++;
     }
 
-    // remove from the front - O(1)
+    
     bool dequeue(T& value) {
         if (front == nullptr)
             return false;
@@ -46,13 +46,13 @@ public:
         value = temp->getItem();
         front = front->getNext();
         if (front == nullptr)
-            back = nullptr;   // queue is empty now
+            back = nullptr;   
         delete temp;
         cont--;
         return true;
     }
 
-    // look at the front without removing it - O(1)
+    
     bool peek(T& value) {
         if (front == nullptr)
             return false;
@@ -63,7 +63,7 @@ public:
     bool isEmpty() { return front == nullptr; }
     int getCount() { return count; }
 
-    // print all items from front to back - O(n)
+    
     void print() {
         Node<T>* cur = front;
         while (cur != nullptr) {
@@ -74,8 +74,7 @@ public:
         }
     }
 
-    // delete all nodes - O(n)
-    // (the objects the pointers point to are deleted by the Organizer destructor)
+    
     void clear() {
         while (front != nullptr) {
             Node<T>* temp = front;
