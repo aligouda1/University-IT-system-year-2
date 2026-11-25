@@ -1,4 +1,4 @@
-// Ticket.cpp
+
 #include "Ticket.h"
 
 Ticket::Ticket(int rid, int qt, int lid, TicketType t, int pc, int pr) {
