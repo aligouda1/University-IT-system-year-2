@@ -15,8 +15,7 @@ void UrgentPQ::enqueue(Ticket* t) {
         return;
     }
     PriNode<Ticket*>* curr = head;
-    while (curr->getNext() != nullptr &&
-           !Priority(t, curr->getNext()->getItem())) {
+    while (curr->getNext() != nullptr && !Priority(t, curr->getNext()->getItem())) {
         curr = curr->getNext();
     }
     newNode->setNext(curr->getNext());   
