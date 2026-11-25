@@ -4,7 +4,7 @@
 #include "Defs.h"
 #include "Ticket.h"
 #include "Technician.h"
-#include "Queue.h"        // Ali: Queue<T>
+#include "Queue.h"        // Ali
 #include "PriQueue.h"   
 #include "UrgentPQ.h"     // Abdelrahman
 #include "NRQueue.h"      // Abdelrahman
@@ -13,12 +13,12 @@
 
 class ITUnit{
 private:
-    UrgentPQ Waiting_UR;               // urgent tickets waiting for a technician
-    Queue<Ticket*> Waiting_SR;         // specialist tickets waiting for an ST
-    NRQueue Waiting_NR;                // normal tickets waiting for a GT
-    PriQueue<Technician*> Free_ST;     // free specialist technicians (key = TID)
-    PriQueue<Technician*> Free_GT;     // free general technicians (key = TID)
-    BusyList Busy_Technicians;         // technicians currently serving a ticket
+    UrgentPQ Waiting_UR;               
+    Queue<Ticket*> Waiting_SR;         
+    NRQueue Waiting_NR;                
+    PriQueue<Technician*> Free_ST;    
+    PriQueue<Technician*> Free_GT;    
+    BusyList Busy_Technicians;         
 
 public:
     void addWaitingTicket(Ticket* t);
