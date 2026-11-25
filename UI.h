@@ -1,4 +1,3 @@
-// UI.h - all console input / output (Mohamed Hamdy)
 #ifndef UI_H
 #define UI_H
 
@@ -10,7 +9,7 @@ using namespace std;
 class UI {
     SimMode mode;
 
-    // prints one line like:  UR (2): 3 7
+    // UR (2): 3 7
     template <typename List>
     void printList(string title, List& list) {
         cout << title << " (" << list.getCount() << "): ";
@@ -21,17 +20,15 @@ class UI {
 public:
     UI();
 
-    SimMode selectMode();          // asks the user: 1 = Interactive, 2 = Silent
-    string getInputFileName();     // asks for the input file name
+    SimMode selectMode();          
+    string getInputFileName();    
     bool isInteractive();
 
     void printSilentStart();
     void printSilentEnd(bool outputFileCreated = false);
-    void waitForEnter();           // "Press Enter to advance to the next minute."
+    void waitForEnter();           
 
-    // Shows the state of the current minute (Phase 1.2: no technician info).
-    // Does nothing in Silent mode, so the simulator can always call it.
-    // Works with any list class that has print() and getCount().
+
     template <typename URList, typename SRList, typename NRList,
               typename DoneList, typename CancelList>
     void printMinuteState(int minute, URList& waitingUR, SRList& waitingSR,
