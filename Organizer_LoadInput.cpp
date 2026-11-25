@@ -69,7 +69,6 @@ bool Organizer::loadInputFile (string filename) {
         else {
             type = UR;
             numUR++;
-            in >> pr;   
         }
 
         Ticket* t = new Ticket(rid, qt, lid, type, pc, pr);
