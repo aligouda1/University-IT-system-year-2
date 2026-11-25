@@ -1,4 +1,3 @@
-// Organizer_LoadInput.cpp - reads the input file (Ali Mostafa)
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -12,7 +11,7 @@ bool Organizer::loadInputFile (string filename) {
         return false;
     }
 
-    // locations
+   
     int L;
     in >> L;
     locations.initLocations(L);
@@ -23,7 +22,7 @@ bool Organizer::loadInputFile (string filename) {
     }
     numLocations = L;
 
-    // problem codes (row number =problem code,starts at1)
+   
     int K;
     in >> K;
     for (int i = 1; i <= K; i++) {
@@ -34,7 +33,7 @@ bool Organizer::loadInputFile (string filename) {
     }
     numProblemCodes = K;
 
-    // technicians (ST first,then GT,IDs increase)
+    
     int stCount, gtCount;
     in >> stCount >> gtCount;
     int id = 1;
@@ -49,7 +48,7 @@ bool Organizer::loadInputFile (string filename) {
     numST = stCount;
     numGT = gtCount;
 
-    // requests (Phase 1.2: go directly to the waiting lists)
+    
     int R;
     in >> R;
     for (int i = 0; i < R; i++) {
@@ -70,15 +69,15 @@ bool Organizer::loadInputFile (string filename) {
         else {
             type = UR;
             numUR++;
-            in >> pr;   // only UR has a priority
+            in >> pr;   
         }
 
         Ticket* t = new Ticket(rid, qt, lid, type, pc, pr);
         t->setStatus(WAITING);
-        itUnit.addWaitingTicket(t);   // ITUnit chooses the right list
+        itUnit.addWaitingTicket(t);  
     }
 
-    // cancellations 
+    
     int C;
     in >> C;
     for (int i = 0; i < C; i++) {
