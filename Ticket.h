@@ -1,4 +1,4 @@
-// Ticket.h
+
 #ifndef TICKET_H
 #define TICKET_H
 
@@ -13,10 +13,10 @@ class Ticket {
     int LID;            // location ID
     TicketType type;    // NR, SR or UR
     int PC;             // problem code
-    int PR;             // priority (only for UR, otherwise 0)
-    int AT;             // assignment time (-1 until assigned)
-    int ST;             // service start time (-1 until started)
-    int FT;             // finish time (-1 until finished)
+    int PR;             // priority 
+    int AT;             // assignment time 
+    int ST;             // service start time 
+    int FT;             // finish time 
     TicketStatus status;
 
 public:
