@@ -6,7 +6,7 @@
 #include "Defs.h"
 using namespace std;
 
-// cout << problemCode*   prints  "PC=1 B 3"
+
 ostream& operator<<(ostream& out, ProblemCode* p);
 
 class ProblemTable : public Queue<ProblemCode*> {
@@ -14,7 +14,7 @@ public:
     ~ProblemTable();
 
     ProblemCode* getByIndex(int pc);   
-    char getCategory(int pc);          // 'B' / 'H'   (or '?')
+    char getCategory(int pc);          
     int getDuration(int pc);           
 
     void print();       
