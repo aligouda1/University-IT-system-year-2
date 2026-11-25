@@ -1,4 +1,3 @@
-// ProblemTable.h - the problem-code table (derived from Queue)
 #ifndef PROBLEMTABLE_H
 #define PROBLEMTABLE_H
 
