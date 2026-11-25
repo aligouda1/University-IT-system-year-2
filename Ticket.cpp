@@ -1,7 +1,7 @@
 
 #include "Ticket.h"
 
-Ticket::Ticket(int rid, int qt, int lid, TicketType t, int pc, int pr) {
+Ticket(int rid, int qt, int lid, TicketType t, int pc, int pr) {
     RID = rid;
     QT = qt;
     LID = lid;
