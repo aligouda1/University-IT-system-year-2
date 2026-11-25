@@ -1,4 +1,3 @@
-// ProblemTable.cpp
 #include "ProblemTable.h"
 
 ostream& operator<<(ostream& out, ProblemCode* p) {
@@ -47,7 +46,7 @@ void ProblemTable::print() {
 
 void ProblemTable::clearAll() {
     ProblemCode* p;
-    while (dequeue(p)) {     // dequeue frees the node, we free the row
+    while (dequeue(p)) {     
         delete p;
 }
 }
