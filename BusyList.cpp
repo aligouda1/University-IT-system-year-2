@@ -15,8 +15,7 @@ void BusyList::enqueueBusy(Technician* tech) {
         return;
     }
     PriNode<Technician*>* curr = head;
-    while (curr->getNext() != nullptr &&
-           !finishesBefore(tech, curr->getNext()->getItem())) {
+    while (curr->getNext() != nullptr && !finishesBefore(tech, curr->getNext()->getItem())) {
         curr = curr->getNext();
     }
     newNode->setNext(curr->getNext());
