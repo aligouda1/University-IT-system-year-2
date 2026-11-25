@@ -1,4 +1,3 @@
-// Node.h - one node of a linked list
 #ifndef NODE_H
 #define NODE_H
 
