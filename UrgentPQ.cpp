@@ -1,24 +1,24 @@
 #include "UrgentPQ.h"
-using namespace std;
-bool UrgentPQ::Priority(Ticket* a, Ticket* b) {
+bool UrgentPQ::hasHigherPriority(Ticket* a, Ticket* b) const {
     if (a->getPR() != b->getPR())
-        return a->getPR() > b->getPR();     
+        return a->getPR() > b->getPR();   
     if (a->getQT() != b->getQT())
-        return a->getQT() < b->getQT();     
-    return a->getRID() < b->getRID();      
-void UrgentPQ::enqueue(Ticket* t) {
-    PriNode<Ticket*>* newNode = new PriNode<Ticket*>(t);    
-    if (head == nullptr || Priority(t, head->getItem())) {
+        return a->getQT() < b->getQT();   
+    return a->getRID() < b->getRID();     
+}
+void UrgentPQ::enqueueUrgent(Ticket* t) {
+    PriNode<Ticket*>* newNode = new PriNode<Ticket*>(t, t->getPR());    
+    if (head == nullptr || hasHigherPriority(t, head->getItem())) {
         newNode->setNext(head);
         head = newNode;
         count++;
         return;
-    }
+    }   
     PriNode<Ticket*>* curr = head;
-    while (curr->getNext() != nullptr && !Priority(t, curr->getNext()->getItem())) {
+    while (curr->getNext() != nullptr && !hasHigherPriority(t, curr->getNext()->getItem())) {
         curr = curr->getNext();
     }
-    newNode->setNext(curr->getNext());   
-    curr->setNext(newNode);             
+    newNode->setNext(curr->getNext());
+    curr->setNext(newNode);
     count++;
 }
