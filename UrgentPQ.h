@@ -1,15 +1,10 @@
 #ifndef URGENTPQ_H
 #define URGENTPQ_H
+#include "PriQueue.h"
 #include "Ticket.h"
-#include "PriNode.h"
-class UrgentPQ {
-private:
-    PriNode<Ticket*>* head = nullptr;
-    bool Priority(Ticket* a, Ticket* b);
+class UrgentPQ : public PriQueue<Ticket*> {
 public:
-    ~UrgentPQ();
-    bool is_empty();
-    void enqueue(Ticket* t);
-    Ticket* dequeue();
+    bool hasHigherPriority(Ticket* a, Ticket* b) const;
+    void enqueueUrgent(Ticket* t);   
 };
-#endif
+
