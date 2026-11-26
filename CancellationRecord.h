@@ -1,20 +1,16 @@
+#ifndef CANCELLATIONRECORD_H
+#define CANCELLATIONRECORD_H
+
 class CancellationRecord {
 private:
-    int CT;   
-    int RID;   
-public:   
-    CancellationRecord() {
-        CT = 0;
-        RID = 0;
-    }   
-    CancellationRecord(int ct, int rid) {
-        CT = ct;
-        RID = rid;
-    }    
-    int getCT() {
-        return CT;
-    }   
-    int getRID() {
-        return RID;
-    }
+    int CT;    //cancellation time
+    int RID;   //request ID 
+public:
+    CancellationRecord();
+    CancellationRecord(int ct, int rid);
+    int getCT() const;
+    int getRID() const;
+    void setCT(int ct);
+    void setRID(int rid);
 };
+#endif
