@@ -1,4 +1,3 @@
-// Organizer_LoadInput.cpp
 #include <fstream>
 #include <iostream>
 #include <string>
