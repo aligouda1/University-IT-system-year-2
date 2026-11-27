@@ -1,0 +1,22 @@
+3
+MainBuilding
+Library
+EngineeringLab
+3
+B 5
+H 8
+B 12
+2 2
+9
+NR 0 101 1 1
+SR 0 201 2 2
+UR 0 301 1 1 4
+NR 1 102 2 2
+UR 1 302 3 3 8
+SR 2 202 1 2
+NR 2 103 3 1
+NR 3 104 2 3
+NR 4 105 1 2
+2
+5 104
+8 999
