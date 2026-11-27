@@ -7,46 +7,51 @@
 using namespace std;
 
 class UI {
+private:
     SimMode mode;
-
-   
-    template <typename List>
-    void printList(string title, List& list) {
-        cout << title << " (" << list.getCount() << "): ";
-        list.print();
-        cout << endl;
-    }
 
 public:
     UI();
 
-    SimMode selectMode();          
-    string getInputFileName();    
+    SimMode selectMode();
+    string getInputFileName();
     bool isInteractive();
 
     void printSilentStart();
     void printSilentEnd(bool outputFileCreated = false);
-    void waitForEnter();           
+    void waitForEnter();
 
-
-    template <typename URList, typename SRList, typename NRList,
-              typename DoneList, typename CancelList>
-    void printMinuteState(int minute, URList& waitingUR, SRList& waitingSR,
-                          NRList& waitingNR, DoneList& completed,
-                          CancelList& cancelled) {
+    template <typename T1, typename T2, typename T3, typename T4, typename T5>
+    void printMinuteState(int minute, T1& waitingUR, T2& waitingSR,
+                          T3& waitingNR, T4& completed, T5& cancelled) {
         if (mode == SILENT)
             return;
 
         cout << "==============================" << endl;
         cout << "Current Minute: " << minute << endl;
+
         cout << "------ Waiting tickets ------" << endl;
-        printList("UR", waitingUR);
-        printList("SR", waitingSR);
-        printList("NR", waitingNR);
+        cout << "UR (" << waitingUR.getCount() << "): ";
+        waitingUR.print();
+        cout << endl;
+
+        cout << "SR (" << waitingSR.getCount() << "): ";
+        waitingSR.print();
+        cout << endl;
+
+        cout << "NR (" << waitingNR.getCount() << "): ";
+        waitingNR.print();
+        cout << endl;
+
         cout << "------ Completed tickets ------" << endl;
-        printList("Completed", completed);
+        cout << "Completed (" << completed.getCount() << "): ";
+        completed.print();
+        cout << endl;
+
         cout << "------ Cancelled tickets ------" << endl;
-        printList("Cancelled", cancelled);
+        cout << "Cancelled (" << cancelled.getCount() << "): ";
+        cancelled.print();
+        cout << endl;
 
         waitForEnter();
     }
