@@ -1,4 +1,4 @@
-
+// Queue.h
 #ifndef QUEUE_H
 #define QUEUE_H
 
@@ -11,78 +11,80 @@ class Queue {
 protected:
     Node<T>* front;
     Node<T>* back;
-    int cont;
+    int count;
 
 public:
+    // initialize empty queue
     Queue() {
         front = nullptr;
         back = nullptr;
-        cont = 0;
+        count = 0;
     }
 
-  
+    // check if queue is empty
+    bool isEmpty() {
+        return front == nullptr;
+    }
 
-    
-    Queue(const Queue&) = delete;
-    Queue& operator=(const Queue&) = delete;
+    // return number of items
+    int getCount() {
+        return count;
+    }
 
-   
+    // add item to the back
     void enqueue(T value) {
-        Node<T>* n = new Node<T>(value);
-        if (front == nullptr)
-            front = n;
-        else
-            back->setNext(n);
-        back = n;
-        cont++;
+        Node<T>* newNode = new Node<T>(value);
+
+        if (isEmpty()) {
+            front = newNode;
+            back = newNode;
+        }
+        else {
+            back->setNext(newNode);
+            back = newNode;
+        }
+        count++;
     }
 
-    
+    // remove item from the front
     bool dequeue(T& value) {
-        if (front == nullptr)
+        if (isEmpty())
             return false;
 
         Node<T>* temp = front;
-        value = temp->getItem();
+        value = front->getItem();
         front = front->getNext();
+
         if (front == nullptr)
-            back = nullptr;   
+            back = nullptr;
+
         delete temp;
-        cont--;
+        count--;
         return true;
     }
 
-    
+    // get front item without removing it
     bool peek(T& value) {
-        if (front == nullptr)
+        if (isEmpty())
             return false;
+
         value = front->getItem();
         return true;
     }
 
-    bool isEmpty() { return front == nullptr; }
-    int getCount() { return count; }
-
-    
+    // print all items in the queue
     void print() {
         Node<T>* cur = front;
         while (cur != nullptr) {
-            cout << cur->getItem();
-            if (cur->getNext() != nullptr)
-                cout << " ";
+            cout << cur->getItem() << " ";
             cur = cur->getNext();
         }
     }
 
-    
+    // remove all nodes from the queue
     void clear() {
-        while (front != nullptr) {
-            Node<T>* temp = front;
-            front = front->getNext();
-            delete temp;
-        }
-        back = nullptr;
-        cont = 0;
+        T dummy;
+        while (dequeue(dummy));
     }
 };
 
