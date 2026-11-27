@@ -1,20 +1,15 @@
 #include "ProblemTable.h"
 
-ostream& operator<<(ostream& out, ProblemCode* p) {
-    out << "PC=" << p->PC << " " << p->category << " " << p->duration;
-    return out;
-}
-
 ProblemTable::~ProblemTable() {
     clearAll();
 }
 
 ProblemCode* ProblemTable::getByIndex(int pc) {
-    if (pc < 1 || pc > count){
+    if (pc < 1 || pc > count)
         return nullptr;
-    }
+
     Node<ProblemCode*>* cur = front;
-    for (int i = 1; i < pc; i++){       
+    for (int i = 1; i < pc; i++) {
         cur = cur->getNext();
     }
     return cur->getItem();
@@ -22,31 +17,30 @@ ProblemCode* ProblemTable::getByIndex(int pc) {
 
 char ProblemTable::getCategory(int pc) {
     ProblemCode* p = getByIndex(pc);
-    if (p == nullptr){
+    if (p == nullptr)
         return '?';
-    }
     return p->category;
 }
 
 int ProblemTable::getDuration(int pc) {
     ProblemCode* p = getByIndex(pc);
-    if (p == nullptr){
+    if (p == nullptr)
         return 0;
-    }
     return p->duration;
 }
 
 void ProblemTable::print() {
     Node<ProblemCode*>* cur = front;
     while (cur != nullptr) {
-        cout << cur->getItem() << endl;
+        ProblemCode* p = cur->getItem();
+        cout << "PC=" << p->PC << " " << p->category << " " << p->duration << endl;
         cur = cur->getNext();
     }
 }
 
 void ProblemTable::clearAll() {
     ProblemCode* p;
-    while (dequeue(p)) {     
+    while (dequeue(p)) {
         delete p;
-}
+    }
 }
