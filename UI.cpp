@@ -1,4 +1,3 @@
-
 #include "UI.h"
 
 UI::UI() {
@@ -6,19 +5,15 @@ UI::UI() {
 }
 
 SimMode UI::selectMode() {
-    string answer;
+    string choice;
     while (true) {
-        cout << "Choose the mode:" << endl;
-        cout << "  1 - Interactive" << endl;
-        cout << "  2 - Silent" << endl;
-        cout << "Your choice: ";
-        getline(cin, answer);
+        cout << "Choose the mode:\n1 - Interactive\n2 - Silent\nYour choice: ";
+        getline(cin, choice);
 
-        if (answer == "1") {
+        if (choice == "1") {
             mode = INTERACTIVE;
             break;
-        }
-        if (answer == "2") {
+        } else if (choice == "2") {
             mode = SILENT;
             break;
         }
@@ -35,24 +30,22 @@ string UI::getInputFileName() {
 }
 
 bool UI::isInteractive() {
-    return mode == INTERACTIVE;
+    return (mode == INTERACTIVE);
 }
 
 void UI::printSilentStart() {
-    cout << "Silent Mode" << endl;
-    cout << "Simulation Starts..." << endl;
+    cout << "Silent Mode\nSimulation Starts..." << endl;
 }
 
 void UI::printSilentEnd(bool outputFileCreated) {
     cout << "Simulation ends";
-    if (outputFileCreated){
+    if (outputFileCreated)
         cout << ", Output file created";
-    }
     cout << endl;
 }
 
 void UI::waitForEnter() {
-    string dummy;
+    string temp;
     cout << "Press Enter to advance to the next minute." << endl;
-    getline(cin, dummy);
+    getline(cin, temp);
 }
