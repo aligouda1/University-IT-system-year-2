@@ -1,7 +1,6 @@
-
 #include "Ticket.h"
 
-Ticket(int rid, int qt, int lid, TicketType t, int pc, int pr) {
+Ticket::Ticket(int rid, int qt, int lid, TicketType t, int pc, int pr) {
     RID = rid;
     QT = qt;
     LID = lid;
@@ -15,8 +14,8 @@ Ticket(int rid, int qt, int lid, TicketType t, int pc, int pr) {
 }
 
 string Ticket::getTypeString() {
-    if (type == NR){
-        return "NR"; 
+    if (type == NR) {
+        return "NR";
     }
     if (type == SR) {
         return "SR";
@@ -26,13 +25,12 @@ string Ticket::getTypeString() {
 
 void Ticket::printTicket() {
     cout << getTypeString() << " RID=" << RID << " QT=" << QT
-         << " LID=" << LID << " PC=" << PC;
+        << " LID=" << LID << " PC=" << PC;
     if (type == UR)
         cout << " PR=" << PR;
     cout << endl;
 }
 
-ostream& operator<<(ostream& out, Ticket* t) {
-    out << t->getRID();
-    return out;
+void Ticket::printRID() {
+    cout << RID;
 }
