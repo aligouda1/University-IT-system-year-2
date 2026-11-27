@@ -15,11 +15,11 @@ public:
     void setNext(Node<T>* n) {
         next = n;
     }
-    Node<T>* getNext() {
+    Node<T>* getNext() { 
         return next;
     }
     T getItem() {
-        return item;
+        return item; 
     }
 };
 
