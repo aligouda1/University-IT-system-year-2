@@ -1,67 +1,58 @@
+// Organizer_LoadInput.cpp
 #include <fstream>
 #include <iostream>
 #include <string>
 #include "Organizer.h"
 using namespace std;
 
-bool Organizer::loadInputFile (string filename) {
-    ifstream in(filename);
-    if (!in.is_open()) {
+bool Organizer::loadInputFile(string filename) {
+    ifstream file(filename);
+    if (!file.is_open()) {
         cout << "Cannot open file: " << filename << endl;
         return false;
     }
 
-   
-    int L;
-    in >> L;
-    locations.initLocations(L);
-    for (int i = 1; i <= L; i++) {
+    // read locations
+    file >> numLocations;
+    locations.initLocations(numLocations);
+    for (int i = 1; i <= numLocations; i++) {
         string name;
-        in >> name;
+        file >> name;
         locations.setLocation(i, name);
     }
-    numLocations = L;
 
-   
-    int K;
-    in >> K;
-    for (int i = 1; i <= K; i++) {
+    // read problem codes
+    file >> numProblemCodes;
+    for (int i = 1; i <= numProblemCodes; i++) {
         ProblemCode* p = new ProblemCode;
         p->PC = i;
-        in >> p->category >> p->duration;
+        file >> p->category >> p->duration;
         problemTable.enqueue(p);
     }
-    numProblemCodes = K;
 
-    
-    int stCount, gtCount;
-    in >> stCount >> gtCount;
+    // read technicians (ST then GT)
+    file >> numST >> numGT;
     int id = 1;
-    for (int i = 0; i < stCount; i++) {
-        itUnit.addFreeTechnician(new Technician(id, ST));
-        id++;
+    for (int i = 0; i < numST; i++) {
+        itUnit.addFreeTechnician(new Technician(id++, ST));
     }
-    for (int i = 0; i < gtCount; i++) {
-        itUnit.addFreeTechnician(new Technician(id, GT));
-        id++;
+    for (int i = 0; i < numGT; i++) {
+        itUnit.addFreeTechnician(new Technician(id++, GT));
     }
-    numST = stCount;
-    numGT = gtCount;
 
-    
+    // read requests
     int R;
-    in >> R;
+    file >> R;
     for (int i = 0; i < R; i++) {
         string typeStr;
-        int qt, rid, lid, pc;
-        int pr = 0;
-        in >> typeStr >> qt >> rid >> lid >> pc;
+        int qt, rid, lid, pc, pr = 0;
+        file >> typeStr >> qt >> rid >> lid >> pc;
 
         TicketType type;
         if (typeStr == "NR") {
             type = NR;
             numNR++;
-        } 
+        }
         else if (typeStr == "SR") {
             type = SR;
             numSR++;
@@ -69,27 +60,28 @@ bool Organizer::loadInputFile (string filename) {
         else {
             type = UR;
             numUR++;
+            file >> pr;
         }
 
         Ticket* t = new Ticket(rid, qt, lid, type, pc, pr);
         t->setStatus(WAITING);
-        itUnit.addWaitingTicket(t);  
+        itUnit.addWaitingTicket(t);
     }
 
-    
+    // read cancellations
     int C;
-    in >> C;
+    file >> C;
     for (int i = 0; i < C; i++) {
         CancellationRecord* c = new CancellationRecord;
-        in >> c->CT >> c->RID;
+        file >> c->CT >> c->RID;
         allCancellations.enqueue(c);
     }
 
-    if (in.fail()) {
+    if (file.fail()) {
         cout << "Input file has a wrong format" << endl;
         return false;
     }
 
-    in.close();
+    file.close();
     return true;
 }
